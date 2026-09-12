@@ -8,12 +8,4 @@ def create_app():
     def health():
         return jsonify(status="ok"), 200
 
-    @app.route("/greet/<name>")
-    def greet(name):
-        if not name.strip():
-            return jsonify(error="name is required"), 400
-        if len(name) > 50:
-            return jsonify(error="name is too long"), 400
-        return jsonify(message=f"Hello, {name}!"), 200
-
     return app
